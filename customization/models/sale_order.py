@@ -23,6 +23,6 @@ class SaleOrder(models.Model):
         ('other', 'Other'), 
         ],
         required=True,
-        store=True
+        default='other'
     )
     uninstalled_by = fields.Many2one('res.partner', string="Desinstaldo por",store = True)
