@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    
+    <record model="ir.ui.view" id="purchase_purchase_order_form_customization">
+        <field name="name">purchase.purchase_order_form.customization</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="payment_term_id"/>
+                <field name="incoterm_id"/>
+                <field name="incoterm_id_code"/>
+            </xpath>
+
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="date_planned"/>
+                <field name="carrier_id"/>
+                <field name="category_id"/>
+                <field name="picking_type_id"/>
+                <field name="ship_from_id"/>
+            </xpath>
+
+        </field>
+    </record>  
+      
+  </data>
+</odoo>

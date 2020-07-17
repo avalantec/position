@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+
+#fields.Char(string='Telefono',related='partner_id.phone',store = True) 
+
+# class customization(models.Model):
+#     _name = 'customization.customization'
+#     _description = 'customization.customization'
+
+#     name = fields.Char()
+#     value = fields.Integer()
+#     value2 = fields.Float(compute="_value_pc", store=True)
+#     description = fields.Text()
+#
+#     @api.depends('value')
+#     def _value_pc(self):
+#         for record in self:
+#             record.value2 = float(record.value) / 100
