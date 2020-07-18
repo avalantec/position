@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+     
+      <record model="ir.ui.view" id="rental_order_form_customization">
+          <field name="name">rental.order.form.customization</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale_renting.rental_order_primary_form_view"/>
+          <field name="priority">99</field>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='pricelist_id']" position="before">
+                   <field name="commitment_date"/>
+              </xpath>
+              
+              <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                   <field name="client_order_ref" string="Documento Referencia" help="Documento de referencia\nque envía el cliente"/>
+              </xpath>
+                            
+              <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+                <group name="group_DSFaC">
+                  <group name="group_DSFaC_left"/>
+                </group>
+              </xpath>
+
+              <xpath expr="//group[@name='group_DSFaC_left']" position="inside">
+                    <field name="carrier_id" help="Compañía/Persona que realiza el transporte"/>
+                    <field name="driver_id" help="Persona que realiza la entrega"/>
+                    <field name="driver_vat_id" help="Documento de Identificación de la persona que transporta"/>
+                    <field name="license_plate" help="# de Placa del vehículo de la persona que transporta"/>
+                    <field name="uninstalled_by" help="Persona que realiza la desinstalación"/>
+              </xpath>
+
+              <xpath expr="//group[@name='group_DSFaC']" position="inside">
+                <group name="group_DSFaC_right"/>
+              </xpath>
+
+              <xpath expr="//group[@name='group_DSFaC_right']" position="inside">
+                    <field name="import_export" string="Import/Export" widget="radio" options="{&quot;horizontal&quot;:true}"
+                           help="Seleccionar si es una Importación o Exportación"/>
+                    <field name="container" string="# CTR" help="Código del Container"/>
+                    <field name="location_src_id" help="Lugar de Origen"/>
+                    <field name="location_dst_id" help="Lugar de Destino"/>
+              </xpath>
+              
+              <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='product_uom']" position="after">
+                <field name="pickup_date" string="Instalar"/>
+                <field name="return_date" string="Desinstalar"/>
+              </xpath>
+              
+          </field>
+      </record>
+
+      
+      <record model="ir.ui.view" id="rental_order_kanban_customization">
+          <field name="name">rental.order.kanban.customization</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale_renting.rental_order_view_kanban"/>
+          <field name="priority">99</field>
+          <field name="arch" type="xml">
+            <data>
+                  <xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[1]/strong[1]/field[@name='amount_total']" position="after">
+                      <field display="full" name="container"/>
+                      <field display="full" name="carrier_id"/>
+                      <field display="full" name="location_src_id"/>
+                      <field display="full" name="location_dst_id"/>
+                  </xpath>
+            </data>
+          </field>
+      </record>
+
+      
+      <record model="ir.ui.view" id="rental_order_tree_customization">
+          <field name="name">rental.order.tree.customization</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale_renting.rental_order_view_tree"/>
+          <field name="priority">99</field>
+          <field name="arch" type="xml">
+            <data>
+              <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="import_export"/>
+                <field name="container"/>
+                <field name="carrier_id"/>
+                <field name="driver_id"/>
+              </xpath>
+            </data>
+          </field>
+      </record>
+      
+      <record model="ir.ui.view" id="rental_order_search_customization">
+          <field name="name">rental.order.search.customization</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale_renting.rental_order_view_search"/>
+          <field name="priority">99</field>
+          <field name="arch" type="xml">
+            <data>
+                <xpath expr="//filter[@name='customer']" position="after">
+                    <filter context="{'group_by': 'carrier_id'}" name="carrier_id" string="Transportista"/>
+                    <filter context="{'group_by': 'driver_id'}" name="driver_id" string="Driver"/>
+                    <filter context="{'group_by': 'import_export'}" name="import_export" string="Import Export"/>
+                    <filter context="{'group_by': 'uninstalled_by'}" name="uninstalled_by" string="Desinstalado por"/>
+                </xpath>
+            </data>
+          </field>
+      </record>
+      
+  </data>
+</odoo>
