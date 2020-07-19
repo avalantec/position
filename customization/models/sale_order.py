@@ -16,6 +16,7 @@ class SaleOrder(models.Model):
     ship_point_id = fields.Many2one('res.partner', string="Ship Point",store = True)
     carrier_id = fields.Many2one('res.partner', string="Carrier",store = True)
     driver_id = fields.Many2one('res.partner', string="Driver",store = True)
+    driver_id_phone = fields.Char(related='driver_id.phone', string="Driver Phone",store = True)
     driver_vat_id = fields.Char(related='driver_id.vat', string="Driver ID",store = True)
     import_export = fields.Selection(
         [('imp', 'Import'),
