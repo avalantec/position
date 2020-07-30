@@ -14,7 +14,7 @@
               </xpath>
               
               <xpath expr="//field[@name='partner_shipping_id']" position="after">
-                   <field name="client_order_ref" string="Documento Referencia" help="Documento de referencia\nque envía el cliente"/>
+                   <field name="client_order_ref" string="PO: " help="Documento de referencia o PO\nque envía el cliente"/>
               </xpath>
                             
               <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
