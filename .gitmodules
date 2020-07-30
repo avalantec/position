@@ -2,3 +2,7 @@
 	path = l10n_cr_zones
 	url = git@github.com:stefanjaw/l10n_cr_zones.git
 	branch = odoo_v13
+[submodule "bccr_odoo"]
+	path = bccr_odoo
+	url = git@github.com:stefanjaw/bccr_odoo.git
+	branch = odoo_v13
