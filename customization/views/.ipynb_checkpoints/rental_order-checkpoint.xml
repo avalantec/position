@@ -26,6 +26,7 @@
               <xpath expr="//group[@name='group_DSFaC_left']" position="inside">
                     <field name="carrier_id" help="Compañía/Persona que realiza el transporte"/>
                     <field name="driver_id" help="Persona que realiza la entrega"/>
+                    <field name="driver_id_phone" help="Teléfono de la persona que realiza la entrega" widget="phone"/>
                     <field name="driver_vat_id" help="Documento de Identificación de la persona que transporta"/>
                     <field name="license_plate" help="# de Placa del vehículo de la persona que transporta"/>
                     <field name="uninstalled_by" help="Persona que realiza la desinstalación"/>
@@ -39,6 +40,7 @@
                     <field name="import_export" string="Import/Export" widget="radio" options="{&quot;horizontal&quot;:true}"
                            help="Seleccionar si es una Importación o Exportación"/>
                     <field name="container" string="# CTR" help="Código del Container"/>
+                    <field name="booking" string="# BK" help="Código de Booking"/>
                     <field name="location_src_id" help="Lugar de Origen"/>
                     <field name="location_dst_id" help="Lugar de Destino"/>
               </xpath>

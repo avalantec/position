@@ -40,6 +40,7 @@
                     <field name="import_export" string="Import/Export" widget="radio" options="{&quot;horizontal&quot;:true}"
                            help="Seleccionar si es una Importación o Exportación"/>
                     <field name="container" string="# CTR" help="Código del Container"/>
+                    <field name="booking" string="# BK" help="Código de Booking"/>
                     <field name="location_src_id" help="Lugar de Origen"/>
                     <field name="location_dst_id" help="Lugar de Destino"/>
               </xpath>

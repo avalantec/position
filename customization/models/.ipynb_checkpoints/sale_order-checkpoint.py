@@ -10,6 +10,7 @@ class SaleOrder(models.Model):
 
     license_plate = fields.Char(string="# de Placa",store = True)
     container = fields.Char(string="# CTR",store = True)
+    booking = fields.Char(string="# BK",store = True)
     location_src_id = fields.Many2one('res.partner', string="Source Location",store = True)
     location_dst_id = fields.Many2one('res.partner', string="Destination Location",store = True)
     category_id = fields.Many2one('product.category', string="Catgegoría",store = True)
@@ -17,11 +18,13 @@ class SaleOrder(models.Model):
     carrier_id = fields.Many2one('res.partner', string="Carrier",store = True)
     driver_id = fields.Many2one('res.partner', string="Driver",store = True)
     driver_vat_id = fields.Char(related='driver_id.vat', string="Driver ID",store = True)
+    driver_id_phone = fields.Char(related='driver_id.phone', string="Driver Phone",store = True)
     import_export = fields.Selection(
         [('imp', 'Import'),
         ('exp', 'Export'),
         ('other', 'Other'), 
         ],
-        required=True
+        required=True,
+        store=True
     )
     uninstalled_by = fields.Many2one('res.partner', string="Desinstaldo por",store = True)
