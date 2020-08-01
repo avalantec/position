@@ -24,7 +24,7 @@ class SaleOrder(models.Model):
         ('exp', 'Export'),
         ('other', 'Other'), 
         ],
-        required=True,
+        required=False,
         store=True
     )
     uninstalled_by = fields.Many2one('res.partner', string="Desinstaldo por",store = True)
