@@ -50,6 +50,12 @@
                 <field name="return_date" string="Desinstalar"/>
               </xpath>
               
+              <xpath expr="//button[@name='action_cancel']" position="before">
+                <!-- INSERTING PICKUP BUTTON TO SEND BY EMAIL-->
+                <button name="action_pickup_send" string="Send PickUP by Email" type="object" />
+                <!-- attrs="{'invisible': [('is_rental_order','=', False)]  }"-->
+              </xpath>
+            
           </field>
       </record>
 
