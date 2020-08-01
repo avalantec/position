@@ -7,7 +7,7 @@ log = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
-     _description = "Sales Order Custom"
+    _description = "Sales Order Custom"
 
     license_plate = fields.Char(string="# de Placa",store = True)
     container = fields.Char(string="# CTR",store = True)
