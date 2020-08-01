@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/rental_order.xml',
+        'views/mail_template_sale_order_rental_pickup_email.xml',
         'views/res_partner.xml',
         'views/purchase_order.xml',
     ],

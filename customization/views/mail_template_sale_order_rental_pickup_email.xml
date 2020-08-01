@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="sale_order_rental_pickup_send_by_email" model="mail.template">
+            <field name="name">Pick UP Order: Send by email</field>
+            <field name="model_id" ref="sale.model_sale_order"></field>
+            <field name="email_from">${user.partner_id.email}</field>
+            <!-- <field name="email_cc">${(self.env.user.login)|safe}</field> -->
+            <field name="subject">Pickup Order ${object.company_id.name} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Pickup Ref ${object.name or 'n/a' })</field>
+            <field name="body_html"><![CDATA[
+                <p><strong>Estimado: </strong></p>
+                <br/>                
+                <p>Adjunto se encuentra el documento Pickup # <strong>${object.name}<strong></p>
+                <br/>
+                <p>Saludos,</p>
+                <br/>
+                <p><strong>${user.partner_id.email}</strong></p>
+                ]]>
+        </field>
+    </record>
+</data>
+</odoo>    
+
