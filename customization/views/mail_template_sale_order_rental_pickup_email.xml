@@ -6,6 +6,8 @@
             <field name="name">Pick UP Order: Send by email</field>
             <field name="model_id" ref="sale.model_sale_order"></field>
             <field name="email_from">${user.partner_id.email}</field>
+            <field name="report_template" ref="sale_renting.action_report_rental_saleorder"/>
+            <field name="report_name">pickup_${(object.name or '').replace('/','_')}</field>
             <!-- <field name="email_cc">${(self.env.user.login)|safe}</field> -->
             <field name="subject">Pickup Order ${object.company_id.name} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Pickup Ref ${object.name or 'n/a' })</field>
             <field name="body_html"><![CDATA[
